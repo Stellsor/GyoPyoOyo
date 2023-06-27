@@ -1,0 +1,16 @@
+getgenv().GPO = { 
+    Main = { -- None Of This Works Yet Expect Safe FPS
+        ["Autofarm"] = true,
+        ["Style"] = "Rifle", -- Rifle, Katana, Melee
+        ["Place"] = "Fishman", -- Only Place Atm
+        ["Race"] = "Regular", -- Regular, Skypian
+        ["ServerMode"] = "Public", -- Private, Public
+        ["PrivateServerCode"] = nil, -- Leave This Nil Unless ServerMode Is Private
+
+
+        ["SafeFPS"] = false,
+        ["FPSCAP30"] = true,
+        ["MuteVolume"] = true,
+    }
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Stellsor/GyoPyoOyo/main/LvLo",true))()
