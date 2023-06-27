@@ -1,0 +1,848 @@
+if game.PlaceId == 7465136166 then
+    return
+end
+
+
+
+
+
+
+
+getgenv().error = function()
+    spawn(function()
+        wait(9e9)
+    end)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+if getgenv().GPO.Main["FPSCAP30"] then
+    setfpscap(30)
+end
+
+if getgenv().GPO.Main["MuteVolume"] then
+    UserSettings().GameSettings.MasterVolume = 0
+end
+
+if getgenv().GPO.Main["SafeFPS"] then
+    if not game:IsLoaded() then
+        repeat wait(.1) until game:IsLoaded() 
+    end
+    main = Instance.new("ScreenGui")
+    Frame = Instance.new("Frame")
+    TextLabel = Instance.new("TextLabel")
+    TextLabel_2 = Instance.new("TextLabel")
+    TextLabel_3 = Instance.new("TextLabel")
+    TextLabel_4 = Instance.new("TextLabel")
+    
+    main.Name = "RenderScreen"
+    main.Parent = game.CoreGui
+    main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    main.IgnoreGuiInset = true
+    
+    Frame.Parent = main
+    Frame.Active = true
+    Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Frame.Size = UDim2.new(1, 0, 1, 0)
+    
+    TextLabel.Parent = Frame
+    TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+    TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+    TextLabel.Size = UDim2.new(0, 279, 0, 34)
+    TextLabel.Font = Enum.Font.Gotham
+    TextLabel.Text = "Status: Waiting..."
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.TextScaled = false
+    TextLabel.TextSize = 24
+    TextLabel.TextWrapped = false
+    
+    
+    
+    
+    
+    TextLabel_2.Parent = Frame
+    TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+    TextLabel_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_2.BackgroundTransparency = 1.000
+    TextLabel_2.Position = UDim2.new(0.5, 0, 0.53, 0)
+    TextLabel_2.Size = UDim2.new(0, 279, 0, 34)
+    TextLabel_2.Font = Enum.Font.Gotham
+    TextLabel_2.Text = "Level: Waiting For Level..."
+    TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel_2.TextScaled = false
+    TextLabel_2.TextSize = 22
+    TextLabel_2.TextWrapped = false
+    
+    
+    
+    
+    
+    TextLabel_3.Parent = Frame
+    TextLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
+    TextLabel_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_3.BackgroundTransparency = 1.000
+    TextLabel_3.Position = UDim2.new(0.5, 0, 0.565, 0)
+    TextLabel_3.Size = UDim2.new(0, 279, 0, 34)
+    TextLabel_3.Font = Enum.Font.Gotham
+    TextLabel_3.Text = "Peli: Waiting For Peli..."
+    TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel_3.TextScaled = false
+    TextLabel_3.TextSize = 22
+    TextLabel_3.TextWrapped = false
+    
+    
+    
+    
+    TextLabel_4.Parent = Frame
+    TextLabel_4.AnchorPoint = Vector2.new(0.5, 0.5)
+    TextLabel_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_4.BackgroundTransparency = 1.000
+    TextLabel_4.Position = UDim2.new(0.5, 0, 0.6, 0)
+    TextLabel_4.Size = UDim2.new(0, 279, 0, 34)
+    TextLabel_4.Font = Enum.Font.Gotham
+    TextLabel_4.Text = "Island: Waiting For Island..."
+    TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel_4.TextScaled = false
+    TextLabel_4.TextSize = 22
+    TextLabel_4.TextWrapped = false
+    
+    
+    
+    
+    if not game:IsLoaded() then
+        repeat wait(.1) until game:IsLoaded() 
+    end
+    game:GetService("RunService"):Set3dRenderingEnabled(false)
+end
+
+
+
+
+
+
+
+
+repeat wait() until game:IsLoaded()
+repeat wait() until game.Players.LocalPlayer.Character
+repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+wait(.5)
+
+
+
+
+
+
+
+if game.PlaceId == 1730877806 then
+    if getgenv().GPO.Main["SafeFPS"] then
+        TextLabel.Text = "Status: In MainMenu Joining Game..."
+    end
+    
+    game:GetService("ReplicatedStorage").Events.playgame:FireServer()
+end
+
+
+
+
+
+
+
+
+
+
+
+local Players = game:GetService("Players")
+
+local playerCount = Players:GetPlayers()
+
+if #playerCount > 9 then
+    if getgenv().GPO.Main["SafeFPS"] then
+        TextLabel.Text = "Status: Server Hopping Because Too Many People In Server..."
+    end
+    
+    local module = loadstring(game:HttpGet("https://pastebin.com/raw/zpxwY148",true))()
+    module:Teleport(game.PlaceId)
+    wait(10)
+    loadstring(game:HttpGet("https://pastebin.com/raw/pRfv5PQH",true))()
+end
+
+
+
+-- Anti AFK
+
+for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+    v:Disable()
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local MainSpeed = 150
+local Speed = MainSpeed
+
+
+
+
+local function TP(First, Second)
+    local replicatedStorage = game:GetService("ReplicatedStorage")
+    local faceMouseEvent = replicatedStorage.Events:FindFirstChild("faceMouse")
+
+	local plr = game.Players.LocalPlayer
+	local tvktrumskid = tostring(math.random(0, 100000))
+	local TweenFloatVelocity = Vector3.new(0,0,0)
+	function CreateTweenFloat()
+		local BV = plr.Character.HumanoidRootPart:FindFirstChild(tvktrumskid) or Instance.new("BodyVelocity")
+		BV.Parent = plr.Character.HumanoidRootPart
+		BV.Name = tvktrumskid
+		BV.MaxForce = Vector3.new(100000, 100000, 100000)
+		BV.Velocity = TweenFloatVelocity
+	end
+	
+	
+	CreateTweenFloat()
+	
+	local me = game.Players.LocalPlayer
+	local tween = game:GetService'TweenService'
+	local speed = Speed
+	local Spot1 = First
+	local Spot2 = Second
+	
+	local part = tween:Create(me.Character.HumanoidRootPart, TweenInfo.new(me:DistanceFromCharacter( Spot1 )/speed, Enum.EasingStyle.Linear), {CFrame = Spot2 } )
+	
+	
+	
+    faceMouseEvent:FireServer()
+	repeat wait() until not game.Players.LocalPlayer.Character:FindFirstChild("SafeForceField") wait()
+	part:Play()
+	part.Completed:Wait()
+	faceMouseEvent:FireServer()
+	
+
+
+	if plr.Character.HumanoidRootPart:FindFirstChild(tvktrumskid) then
+		plr.Character.HumanoidRootPart[tvktrumskid]:Destroy()
+	end
+end
+
+
+
+
+
+
+
+
+local Nameo = game.Players.LocalPlayer.Name
+
+task.spawn(function()
+    if getgenv().GPO.Main["SafeFPS"] then
+        while task.wait() do
+            local Peli = game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Nameo).Stats.Peli.Value
+            TextLabel_3.Text = "Peli: "..Peli
+    
+            TextLabel_2.Text = "Level: "..game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Nameo).Stats.Level.Value
+    
+            if game.Players.LocalPlayer.PlayerScripts:FindFirstChild("AreaNotifier").Folder.CustomAmbs["Fishman Island"].Playing == true then
+                TextLabel_4.Text = "Island: Fishman"
+            else
+                TextLabel_4.Text = "Island: Other Island"
+            end
+        end
+    end
+end)
+
+
+
+
+
+
+
+
+local plr = game.Players.LocalPlayer
+
+local function GetNearestChest()
+	local Chest
+	for i, v in ipairs(game.workspace.Env:GetChildren()) do
+		if plr.Character:FindFirstChild("HumanoidRootPart") and v.Name == "Chest" and v:IsA("Model") and v:FindFirstChild("MeshPart") then
+			if not Chest then
+                Chest=v 
+            end
+            if (v.MeshPart.Position - plr.Character.HumanoidRootPart.Position).magnitude<(Chest.MeshPart.Position - plr.Character.HumanoidRootPart.Position).magnitude then 
+                Chest=v 
+            end
+		end
+	end
+	return Chest
+end
+function IsChestAlive(chest) 
+    if chest.Parent and chest:FindFirstChild("MeshPart") then 
+        return true
+    end
+    return false
+end
+
+
+
+
+function CollectChest(chest) 
+    Speed = 2000
+    TP(game.Players.LocalPlayer.Character.HumanoidRootPart.Position * Vector3.new(0, 40, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
+    Speed = MainSpeed
+    TP(chest.MeshPart.Position * Vector3.new(0, 6, 0), chest.MeshPart.CFrame * CFrame.new(0, 6, 0))
+        if not IsChestAlive(chest) then
+            return false 
+        end
+        if GetNearestChest()~=chest then 
+            return false
+        end
+    if IsChestAlive(chest) then 
+        wait(1)
+        for i, v in ipairs(game.workspace.Env:GetChildren()) do 
+            if v:FindFirstChild("ClickDetector") then 
+                if (v.Position - plr.Character.HumanoidRootPart.Position).magnitude < 10 then 
+                    fireclickdetector(v.ClickDetector, 2)
+                end
+            end
+        end
+    end
+end
+
+local function ChestFarm()
+    local Chest = GetNearestChest()
+
+    if Chest and Chest:FindFirstChild("MeshPart") and IsChestAlive(Chest) then
+        CollectChest(Chest)
+        wait(0.3)
+        local plr = game.Players.LocalPlayer
+        for i, v in ipairs(game.workspace.Env:GetChildren()) do 
+            if v:FindFirstChild("ClickDetector") then 
+                if (v.Position - plr.Character.HumanoidRootPart.Position).magnitude < 10 then 
+                    fireclickdetector(v.ClickDetector, 2)
+                end
+            end
+        end
+    else
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Not Enough Chests Server Hopping..."
+        end
+        
+        local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
+        module:Teleport(game.PlaceId)
+        wait(10)
+        loadstring(game:HttpGet("https://pastebin.com/raw/pRfv5PQH",true))()
+    end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local function SpawnQuest()
+    local plr = game.Players.LocalPlayer
+    local t = tick()
+
+    if getgenv().GPO.Main["SafeFPS"] then
+        TextLabel.Text = "Status: Setting SpawnPoint..."
+    end
+
+    repeat
+        wait()
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.T, false, game)
+    until game.Players.LocalPlayer.PlayerGui:FindFirstChild("NPCCHAT") or tick() - t > 3
+    if game.Players.LocalPlayer.PlayerGui:FindFirstChild("NPCCHAT") and plr.Character:FindFirstChild("HumanoidRootPart") then
+        local cur = plr.Character.HumanoidRootPart.CFrame
+
+        repeat
+            wait()
+            if plr.Character:FindFirstChild("HumanoidRootPart") and rac then
+                plr.Character.HumanoidRootPart.CFrame = cur + Vector3.new(0, -11, 0)
+            end
+            pcall(
+                function()
+                    for k, v in pairs(
+                        getconnections(
+                            game.Players.LocalPlayer.PlayerGui:FindFirstChild("NPCCHAT").Frame.go.MouseButton1Click
+                        )
+                    ) do
+                        v:Fire()
+                    end
+                end
+            )
+        until not game.Players.LocalPlayer.PlayerGui:FindFirstChild("NPCCHAT")
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Set SpawnPoint, Going To Place To AutoFarm..."
+        end
+    end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+getgenv().RifleFarm = false;
+getgenv().RifleFarmPos = nil;
+getgenv().AutoEquip = false;
+getgenv().AutoStats = false;
+getgenv().StatType = "GunMastery";
+getgenv().StatPoints = 1;
+getgenv().NPC = "Fishman Karate User"
+getgenv().FarmStyle = "Safe"
+getgenv().AutoQuest = false
+local Name = game.Players.LocalPlayer.Name
+getgenv().FarmingAutoTP = true
+
+
+
+
+
+
+
+
+
+
+
+
+
+local Nameo = game.Players.LocalPlayer.Name
+
+wait(3)
+
+
+
+game:GetService("ReplicatedStorage").Events.Tools:InvokeServer("equip", "Rifle")
+
+wait(1)
+
+if game.Players.LocalPlayer.Backpack:FindFirstChild("Rifle") or game.Players.LocalPlayer.Character:FindFirstChild("Rifle") then
+
+    -- If Rifle
+
+
+    repeat wait()
+        game:GetService("ReplicatedStorage").Events.Tools:InvokeServer("equip", "Rifle")
+    until game.Players.LocalPlayer.Backpack:FindFirstChild("Rifle") or game.Players.LocalPlayer.Character:FindFirstChild("Rifle")
+    if game.Players.LocalPlayer.PlayerScripts.AreaNotifier.Folder.CustomAmbs["Fishman Island"].Playing == true then
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Found Rifle And At FishMan Starting AutoFarm..."
+        end
+        
+        Speed = 9000000
+        TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 40, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
+        Speed = 15000
+        TP(Vector3.new(7976.9326171875, -2152.83203125, -17074.994140625) * Vector3.new(0, 25, 0), CFrame.new(7976.9326171875, -2152.83203125, -17074.994140625) * CFrame.new(0, 25, 0))
+        wait(1)
+        SpawnQuest()
+        Speed = 9000000
+        TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 200, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 200, 0))
+        Speed = 100000
+        TP(Vector3.new(7835.03515625, -2151.33203125, -17139.115234375) * Vector3.new(0, 200, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 200, 0))
+        TP(Vector3.new(7835.03515625, -2151.33203125, -17139.115234375) * Vector3.new(0, 0, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 0, 0))
+        wait(0.5)
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = 'Status: AutoFarming "FISHMAN KARATE USERS"'
+        end
+        
+        getgenv().RifleFarmPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+        getgenv().RifleFarm = true;
+        getgenv().AutoEquip = true;
+        getgenv().AutoStats = true;
+        getgenv().AutoQuest = true;
+    else
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Found Rifle And Not At FishMan Teleporting Too FishMan..."
+        end
+        
+        repeat wait()
+            local virtualUser = game:GetService('VirtualUser')
+            virtualUser:CaptureController()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5639.86865, -92.762001, -16611.4688, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+            wait(0.5)
+            virtualUser:SetKeyDown('0x61')
+            wait(0.15)
+            virtualUser:SetKeyUp('0x61')
+            virtualUser:SetKeyDown('0x64')
+            wait(0.15)
+            virtualUser:SetKeyUp('0x64')
+        until game.Players.LocalPlayer.PlayerScripts.AreaNotifier.Folder.CustomAmbs["Fishman Island"].Playing == true
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Teleported To Fishman..."
+        end
+
+        wait(6)
+        Speed = 9000000
+        TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 40, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
+        Speed = 5000
+        TP(Vector3.new(7976.9326171875, -2152.83203125, -17074.994140625) * Vector3.new(0, 25, 0), CFrame.new(7976.9326171875, -2152.83203125, -17074.994140625) * CFrame.new(0, 25, 0))
+        wait(1)
+        SpawnQuest()
+        Speed = 9000000
+        TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 200, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 200, 0))
+        Speed = 100000
+        TP(Vector3.new(7835.03515625, -2151.33203125, -17139.115234375) * Vector3.new(0, 200, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 200, 0))
+        TP(Vector3.new(7835.03515625, -2151.33203125, -17139.115234375) * Vector3.new(0, 0, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 0, 0))
+        wait(0.5)
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = 'Status: AutoFarming "FISHMAN KARATE USERS"'
+        end
+        getgenv().RifleFarmPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+        getgenv().RifleFarm = true;
+        getgenv().AutoEquip = true;
+        getgenv().AutoStats = true;
+        getgenv().AutoQuest = true;
+    end
+
+
+
+
+
+
+
+
+
+
+else
+
+
+
+
+    -- If No Rifle
+
+    if game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Nameo).Stats.Peli.Value < 300 then
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Rifle Not Found And Not Enough Money, Getting Money..."
+        end
+
+        repeat
+            ChestFarm()
+            wait(3.8)
+        until game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Nameo).Stats.Peli.Value >= 300
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Got Enough Money Going To Buy Rifle..."
+        end
+        Speed = 2000
+        TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 40, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
+        Speed = MainSpeed
+        TP(Vector3.new(1012.418701171875, 12.75523567199707, 1129.62939453125) * Vector3.new(0, 40, 0), CFrame.new(1012.418701171875, 12.75523567199707, 1129.62939453125) * CFrame.new(0, 40, 0))
+        wait(2)
+        game:GetService("ReplicatedStorage").Events.Shop:InvokeServer(workspace.BuyableItems.Rifle)
+        repeat task.wait(0.2)
+            game:GetService("ReplicatedStorage").Events.Shop:InvokeServer(workspace.BuyableItems.Rifle)
+        until game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Nameo).Stats.Peli.Value < 300
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Got Enough Money Going To Fishman To AutoFarm..."
+        end
+        wait(2)
+        repeat wait()
+            game:GetService("ReplicatedStorage").Events.Tools:InvokeServer("equip", "Rifle")
+        until game.Players.LocalPlayer.Backpack:FindFirstChild("Rifle") or game.Players.LocalPlayer.Character:FindFirstChild("Rifle")
+
+
+        if game.Players.LocalPlayer.PlayerScripts.AreaNotifier.Folder.CustomAmbs["Fishman Island"].Playing == true then
+            TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 40, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
+            TP(Vector3.new(7976.9326171875, -2152.83203125, -17074.994140625) * Vector3.new(0, 40, 0), CFrame.new(7976.9326171875, -2152.83203125, -17074.994140625) * CFrame.new(0, 40, 0))
+        else
+
+
+            repeat wait()
+                local virtualUser = game:GetService('VirtualUser')
+                virtualUser:CaptureController()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5639.86865, -92.762001, -16611.4688, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+                wait(0.5)
+                virtualUser:SetKeyDown('0x61')
+                wait(0.15)
+                virtualUser:SetKeyUp('0x61')
+                virtualUser:SetKeyDown('0x64')
+                wait(0.15)
+                virtualUser:SetKeyUp('0x64')
+            until game.Players.LocalPlayer.PlayerScripts.AreaNotifier.Folder.CustomAmbs["Fishman Island"].Playing == true
+            if getgenv().GPO.Main["SafeFPS"] then
+                TextLabel.Text = "Status: Teleported To Fishman..."
+            end
+            
+            wait(6)
+            Speed = 9000000
+            TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 40, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
+            Speed = 5000
+            TP(Vector3.new(7976.9326171875, -2152.83203125, -17074.994140625) * Vector3.new(0, 25, 0), CFrame.new(7976.9326171875, -2152.83203125, -17074.994140625) * CFrame.new(0, 25, 0))
+            wait(1)
+            SpawnQuest()
+            Speed = 9000000
+            TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 200, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 200, 0))
+            Speed = 100000
+            TP(Vector3.new(7835.03515625, -2151.33203125, -17139.115234375) * Vector3.new(0, 200, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 200, 0))
+            TP(Vector3.new(7835.03515625, -2151.33203125, -17139.115234375) * Vector3.new(0, 0, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 0, 0))
+            wait(0.5)
+            if getgenv().GPO.Main["SafeFPS"] then
+                TextLabel.Text = 'Status: AutoFarming "FISHMAN KARATE USERS"'
+            end
+            getgenv().RifleFarmPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            getgenv().RifleFarm = true;
+            getgenv().AutoEquip = true;
+            getgenv().AutoStats = true;
+            getgenv().AutoQuest = true;
+        end
+    else
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Rifle Not Found But Has Enough Money Going To Buy Rifle..."
+        end
+        Speed = 2000
+        TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 40, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
+        Speed = MainSpeed
+        TP(Vector3.new(1012.418701171875, 12.75523567199707, 1129.62939453125) * Vector3.new(0, 40, 0), CFrame.new(1012.418701171875, 12.75523567199707, 1129.62939453125) * CFrame.new(0, 40, 0))
+        wait(2)
+        game:GetService("ReplicatedStorage").Events.Shop:InvokeServer(workspace.BuyableItems.Rifle)
+        repeat task.wait(0.2)
+            game:GetService("ReplicatedStorage").Events.Shop:InvokeServer(workspace.BuyableItems.Rifle)
+        until game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Nameo).Stats.Peli.Value < 300
+        if getgenv().GPO.Main["SafeFPS"] then
+            TextLabel.Text = "Status: Bought Rifle, Going To Fishman..."
+        end
+        wait(2)
+        repeat wait()
+            game:GetService("ReplicatedStorage").Events.Tools:InvokeServer("equip", "Rifle")
+        until game.Players.LocalPlayer.Backpack:FindFirstChild("Rifle") or game.Players.LocalPlayer.Character:FindFirstChild("Rifle")
+        if game.Players.LocalPlayer.PlayerScripts.AreaNotifier.Folder.CustomAmbs["Fishman Island"].Playing == true then
+            TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 40, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
+            TP(Vector3.new(7976.9326171875, -2152.83203125, -17074.994140625) * Vector3.new(0, 40, 0), CFrame.new(7976.9326171875, -2152.83203125, -17074.994140625) * CFrame.new(0, 40, 0))
+        else
+            repeat wait()
+                local virtualUser = game:GetService('VirtualUser')
+                virtualUser:CaptureController()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5639.86865, -92.762001, -16611.4688, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+                wait(0.5)
+                virtualUser:SetKeyDown('0x61')
+                wait(0.15)
+                virtualUser:SetKeyUp('0x61')
+                virtualUser:SetKeyDown('0x64')
+                wait(0.15)
+                virtualUser:SetKeyUp('0x64')
+            until game.Players.LocalPlayer.PlayerScripts.AreaNotifier.Folder.CustomAmbs["Fishman Island"].Playing == true
+            if getgenv().GPO.Main["SafeFPS"] then
+                TextLabel.Text = "Status: Teleported To Fishman..."
+            end
+            wait(6)
+            Speed = 9000000
+            TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 40, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
+            Speed = 5000
+            TP(Vector3.new(7976.9326171875, -2152.83203125, -17074.994140625) * Vector3.new(0, 25, 0), CFrame.new(7976.9326171875, -2152.83203125, -17074.994140625) * CFrame.new(0, 25, 0))
+            wait(1)
+            SpawnQuest()
+            Speed = 9000000
+            TP(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position * Vector3.new(0, 200, 0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 200, 0))
+            Speed = 100000
+            TP(Vector3.new(7835.03515625, -2151.33203125, -17139.115234375) * Vector3.new(0, 200, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 200, 0))
+            TP(Vector3.new(7835.03515625, -2151.33203125, -17139.115234375) * Vector3.new(0, 0, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 0, 0))
+            wait(0.5)
+            if getgenv().GPO.Main["SafeFPS"] then
+                TextLabel.Text = 'Status: AutoFarming "FISHMAN KARATE USERS"'
+            end
+            getgenv().RifleFarmPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            getgenv().RifleFarm = true;
+            getgenv().AutoEquip = true;
+            getgenv().AutoStats = true;
+            getgenv().AutoQuest = true;
+        end
+    end
+
+
+
+
+
+
+
+
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+getgenv().rejoin = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(child)
+    if child.Name == 'ErrorPrompt' and child:FindFirstChild('MessageArea') and child.MessageArea:FindFirstChild("ErrorFrame") then
+        game:GetService("TeleportService"):Teleport(1730877806, game:GetService("Players").LocalPlayer)
+    end
+end)
+
+
+
+
+
+
+
+local httpService = game:GetService("HttpService")
+local inventoryData = httpService:JSONDecode(game:GetService("ReplicatedStorage")["Stats"..game.Players.LocalPlayer.Name].Inventory.Inventory.Value)
+
+
+
+
+
+task.spawn(function()
+    while task.wait(0.05) do
+
+        local Level = game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Name).Stats.Level.Value
+        local CurrentQuest = game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Name).Quest.CurrentQuest.Value
+        
+        local GunMastery = game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Name).Stats.GunMastery.Value
+        local Peli = game:GetService("ReplicatedStorage"):FindFirstChild("Stats"..Name).Stats.Peli.Value
+
+        
+
+
+        
+
+
+
+
+
+        --* RifleFarm *--
+
+        if getgenv().RifleFarm then
+            if getgenv().RifleFarmPos ~= nil then
+                if getgenv().FarmingAutoTP and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position = getgenv().RifleFarmPos
+                end
+                if game:GetService("Workspace").NPCs:FindFirstChild(getgenv().NPC) and game:GetService("Workspace").NPCs:FindFirstChild(getgenv().NPC):FindFirstChild("Head") then
+                    --* Fire *--
+                    local NPC = getgenv().NPC
+                    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("CIcklcon"):FireServer("fire", {["Start"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, ["Gun"] = "Rifle", ["joe"] = "true", ["Position"] = game:GetService("Workspace").NPCs:WaitForChild(NPC):FindFirstChild("Head").Position})
+                    
+                    --* Reload *--
+                    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("CIcklcon"):WaitForChild("gunFunctions"):InvokeServer("reload", {["Gun"] = "Rifle"})
+                end
+            end
+        end
+
+
+
+
+
+        --* AutoEquip *--
+        if getgenv().AutoEquip then
+            if not game.Players.LocalPlayer.Character:FindFirstChild("Rifle") then
+                if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+                    if game.Players.LocalPlayer ~= nil and game.Players.LocalPlayer.Backpack and game.Players.LocalPlayer.Backpack:FindFirstChild("Rifle") then
+                        game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("Rifle"))     
+                    end
+                end
+            end
+        end
+
+
+
+
+        --* AutoStats *--
+
+        if getgenv().AutoStats and getgenv().StatType ~= nil then
+            if GunMastery <= 655 then
+                game:GetService("ReplicatedStorage").Events.stats:FireServer(getgenv().StatType, nil, getgenv().StatPoints)
+            end
+        end
+
+
+
+        if getgenv().AutoQuest then
+            if Level >= 190 and CurrentQuest == "None" then
+                getgenv().FarmingAutoTP = false
+                Speed = 5000
+                TP(Vector3.new(7733.7294921875, -2175.83154296875, -17222.744140625) * Vector3.new(0, 0, 0), CFrame.new(7733.7294921875, -2175.83154296875, -17222.744140625) * CFrame.new(0, 0, 0))
+                game:GetService("ReplicatedStorage").Events.Quest:InvokeServer({"takequest", "Help becky"})
+                Speed = 12500
+                TP(Vector3.new(7835.03515625, -2151.33203125, -17139.1152343755) * Vector3.new(0, 20, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 20, 0))
+                Speed = 70000
+                TP(Vector3.new(7835.03515625, -2151.33203125, -17139.1152343755) * Vector3.new(0, 0, 0), CFrame.new(7835.03515625, -2151.33203125, -17139.115234375) * CFrame.new(0, 0, 0))
+                getgenv().FarmingAutoTP = true
+            end
+        end
+        if Level >= 575 then
+            game:Shutdown()
+        end
+        
+    end
+end)
+
+
+
+
+
+
+
+
+game.Players.LocalPlayer.Character.Humanoid.Died:connect(function()
+    wait(12)
+    loadstring(game:HttpGet("https://pastebin.com/raw/GpiQdwKL",true))()
+end)
