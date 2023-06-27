@@ -14,3 +14,4 @@ getgenv().GPO = {
     }
 }
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Stellsor/GyoPyoOyo/main/LvLo?token=GHSAT0AAAAAACENJW662OHW5D3GKQVYDEYGZE3M7EQ",true))()
