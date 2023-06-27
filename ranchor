@@ -57,4 +57,4 @@ local function customtwn(input, studspersecond, offset)
 
 end;
 customtwn({-3694.16089, 200, 432.999237}, 185);
-customtwn({-3238.5673828125, 3.1416845321655273, 4168.23681640625}, 185);
+customtwn({-3238.5673828125, 200, 4168.23681640625}, 185);
