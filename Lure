@@ -1,3 +1,5 @@
+
+
 --** Error Ban Bypass **--
 for _,v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
     print("Found Error finder, deleting.")
@@ -8,6 +10,22 @@ for _,v in pairs(getconnections(game:GetService("LogService").MessageOut)) do
     print("found LogService output detection, removing")
     v:Disable()
 end
+
+
+if game.PlaceId == 1730877806 then
+
+local ohString1 = "k8luk4VF3F"
+
+game:GetService("ReplicatedStorage").Events.reserved:InvokeServer(ohString1)
+
+
+local ohBoolean1 = true
+
+game:GetService("Players").LocalPlayer.PlayerGui.chooseType.Frame.RemoteEvent:FireServer(ohBoolean1)
+end
+
+
+
 
 local SpeedBypass = true
 
@@ -70,7 +88,6 @@ local function TweenTP(e, studspersecond, offset)
     faceMouseEvent:FireServer()
     twn:Play();
     twn.Completed:Wait();
-    faceMouseEvent:FireServer()
     if game.workspace:FindFirstChild("LocationMain") then
         game.workspace.LocationMain:Destroy()
     end
@@ -83,14 +100,18 @@ wait(1)
 
 game:GetService("ReplicatedStorage").Events.ShipEvents.Spawn:InvokeServer("true")
 
-wait(0.2)
+wait(3)
 
-game.workspace.NPCs.ChildAdded:Connect(function(child)
-    if child.Name == "Great Kraken" then
-        -- \ do stuff here
-wait(1.3)
-TweenTP(CFrame.new(-352.0727844238281, 307.6954650878906, 1643.7742919921875), 185, 0) 
-    end
-end)
+TweenTP(CFrame.new(-322.091278, 610.662781, 1683.6825, -0.999892056, 1.11787646e-08, -0.0146932183, 1.10519949e-08, 1, 8.70898642e-09, 0.0146932183, 8.54565663e-09, -0.999892056, 185, 0))
 
+wait(4)
 
+ 
+
+local TeleportService = game:GetService("TeleportService")
+
+local Place = 1730877806
+
+local player = game.Players.LocalPlayer
+
+TeleportService:Teleport(Place, player)
