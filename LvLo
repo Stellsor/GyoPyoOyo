@@ -440,8 +440,7 @@ task.spawn(function()
             end
             if game:GetService("Workspace").NPCs:FindFirstChild("Fishman Karate User") and game:GetService("Workspace").NPCs:FindFirstChild("Fishman Karate User"):FindFirstChild("Head") then
                 -- Fire
-                game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("CIcklcon"):FireServer("fire", {["Start"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, ["Gun"] = "Rifle", ["joe"] = "true", ["Position"] = game:GetService("Workspace").NPCs:WaitForChild("Fishman Karate User"):FindFirstChild("Head").Position + Vector3.new(0,0.53,0)})
-
+                game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("CIcklcon"):FireServer("fire", {["Start"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, ["Gun"] = "Rifle", ["joe"] = "true", ["Position"] = game:GetService("Workspace").NPCs:WaitForChild("Fishman Karate User"):FindFirstChild("Head").Position
                 -- Reload
                 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("CIcklcon"):WaitForChild("gunFunctions"):InvokeServer("reload", {["Gun"] = "Rifle"})
             end
