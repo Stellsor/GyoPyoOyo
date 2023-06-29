@@ -1,3 +1,4 @@
+getgenv().GPO = {     
     Main = {
         ["ServerMode"] = "Public", -- Public,  Private.
         ["PrivateServerCode"] = nil, -- Leave This Nil Unless ServerMode Is Private.
@@ -13,8 +14,8 @@
     TweenSpeeds = { -- Test Speeds if need
         ["TweenUp"] = 125,
         ["TweenChest"] = 40, 
-        ["TweenQuest"] = 50,
-        ["TweenMain"] = 45,
+        ["TweenQuest"] = 40,
+        ["TweenMain"] = 40,
     },
     Misc = {
         ["CapFps"] = true,
@@ -22,4 +23,3 @@
         ["MuteVolume"] = true,
     }
 }
-
