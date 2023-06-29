@@ -91,6 +91,7 @@ wait(0.2)
 game.workspace.NPCs.ChildAdded:Connect(function(child)
     if child.Name == "Great Kraken" then
         -- \ do stuff here
+wait(1.3)
 TweenTP(CFrame.new(-352.0727844238281, 307.6954650878906, 1643.7742919921875), 185, 0) 
     end
 end)
