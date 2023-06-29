@@ -1,9 +1,13 @@
-getgenv().error = function(text)
-    spawn(function()
-        wait(9e9)
-    end)
+--** Error Ban Bypass **--
+for _,v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
+    print("Found Error finder, deleting.")
+    v:Disable()
 end
-
+ 
+for _,v in pairs(getconnections(game:GetService("LogService").MessageOut)) do
+    print("found LogService output detection, removing")
+    v:Disable()
+end
 
 local SpeedBypass = true
 
