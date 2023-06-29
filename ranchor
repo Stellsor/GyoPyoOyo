@@ -75,9 +75,6 @@ local function TweenTP(e, studspersecond, offset)
     if game.workspace:FindFirstChild("LocationMain") then
         game.workspace.LocationMain:Destroy()
     end
-    if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("ra") then
-        game.Players.LocalPlayer.Character.HumanoidRootPart["ra"]:Destroy()
-    end
 end
 
 TweenTP(CFrame.new(-3694.16089, 200, 432.999237), 40, 0)
