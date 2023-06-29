@@ -27,50 +27,72 @@ game:GetService("RunService").Heartbeat:Connect(function()
 
 
 
-local plr = game.Players.LocalPlayer
-    local tvktrumskid = tostring(math.random(0, 100000))
-    local TweenFloatVelocity = Vector3.new(0,0,0)
-    function CreateTweenFloat()
-        local BV = plr.Character.HumanoidRootPart:FindFirstChild(tvktrumskid) or Instance.new("BodyVelocity")
-        BV.Parent = plr.Character.HumanoidRootPart
-        BV.Name = "ra"
-        BV.MaxForce = Vector3.new(100000, 100000, 100000)
-        BV.Velocity = TweenFloatVelocity
-    end
- 
- 
+-- Tween Function.
+function CreateTweenFloat()
+    local Twan = game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("ra") or Instance.new("BodyVelocity")
+    Twan.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+    Twan.Name = "ra"
+    Twan.MaxForce = Vector3.new(100000, 100000, 100000)
+    Twan.Velocity = Vector3.new(0,0,0)
+end
+
+local function TweenTP(e, studspersecond, offset)
+    local input = Instance.new("Part", game.Workspace)
+    input.CFrame = e * CFrame.new(0, offset, 0)
+    wait()
+    input.Anchored = true
+    input.Transparency = 1
+    input.Name = "LocationMain"
+    input.CanCollide = false
+
+    local replicatedStorage = game:GetService("ReplicatedStorage")
+    local faceMouseEvent = replicatedStorage.Events:FindFirstChild("faceMouse")
+
     CreateTweenFloat()
 
-local function customtwn(input, studspersecond, offset)
-   local char = game:GetService("Players").LocalPlayer.Character;
-   local input = input or print("input is nil");
-   local studspersecond = studspersecond or 1000;
-   local offset = offset or CFrame.new(0,0,0);
-   local vec3, cframe;
+    local char = game:GetService("Players").LocalPlayer.Character;
+    local input = input or print("input is nil");
+    local studspersecond = studspersecond or 1000;
+    local offset = offset or CFrame.new(0,0,0);
+    local vec3, cframe;
+ 
+    if typeof(input) == "table" then
+        vec3 = Vector3.new(unpack(input)); cframe = CFrame.new(unpack(input));
+    elseif typeof(input) ~= "Instance" then
+        return print("wrong format used");
+    end;
+ 
+    --TweenPart
+    Time = (char.HumanoidRootPart.Position - (vec3 or input.Position)).magnitude/studspersecond;
+    local twn = game.TweenService:Create(char.HumanoidRootPart, TweenInfo.new(Time,Enum.EasingStyle.Linear), {CFrame = (cframe or input.CFrame)});
 
-   if typeof(input) == "table" then
-       vec3 = Vector3.new(unpack(input)); cframe = CFrame.new(unpack(input));
-   elseif typeof(input) ~= "Instance" then
-       return print("wrong format used");
-   end;
+    repeat wait() until not game.Players.LocalPlayer.Character:FindFirstChild("SafeForceField") wait()
+    faceMouseEvent:FireServer()
+    twn:Play();
+    twn.Completed:Wait();
+    faceMouseEvent:FireServer()
+    if game.workspace:FindFirstChild("LocationMain") then
+        game.workspace.LocationMain:Destroy()
+    end
+    if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("ra") then
+        game.Players.LocalPlayer.Character.HumanoidRootPart["ra"]:Destroy()
+    end
+end
 
-   Time = (char.HumanoidRootPart.Position - (vec3 or input.Position)).magnitude/studspersecond;
-   local twn = game.TweenService:Create(char.HumanoidRootPart, TweenInfo.new(Time,Enum.EasingStyle.Linear), {CFrame = (cframe or input.CFrame) * offset});
-   twn:Play();
-   twn.Completed:Wait();
+TweenTP(CFrame.new(-3694.16089, 200, 432.999237), 185, 0)
+TweenTP(CFrame.new(-3411.8125, 200, 5127.521484375), 185, 0)
 
-end;
-customtwn({-3694.16089, 200, 432.999237}, 185); 
-customtwn({-3411.8125, 200, 5127.521484375}, 185); 
-
-wait(1.5)
+wait(1)
 
 game:GetService("ReplicatedStorage").Events.ShipEvents.Spawn:InvokeServer("true")
 
-wait(2.2)
+wait(0.2)
 
-customtwn({-352.0727844238281, 307.6954650878906, 1643.7742919921875}, 185); 
+game.workspace.NPCs.ChildAdded:Connect(function(child)
+    if child.Name == "Great Kraken" then
+        -- \ do stuff here
+TweenTP(CFrame.new(-352.0727844238281, 307.6954650878906, 1643.7742919921875), 185, 0) 
+    end
+end)
 
-wait(10)
 
-plr:Kick("Rejoin")
