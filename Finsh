@@ -1,17 +1,25 @@
-getgenv().GPO = { 
-    Main = { -- None Of This Works Yet Expect Safe FPS
-        ["Autofarm"] = true,
-        ["Style"] = "Rifle", -- Rifle, Katana, Melee
-        ["Place"] = "Fishman", -- Only Place Atm
-        ["Race"] = "Regular", -- Regular, Skypian
-        ["ServerMode"] = "Public", -- Private, Public
-        ["PrivateServerCode"] = nil, -- Leave This Nil Unless ServerMode Is Private
-
-
-        ["SafeFPS"] = false,
-        ["FPSCAP30"] = true,
+    Main = {
+        ["ServerMode"] = "Public", -- Public,  Private.
+        ["PrivateServerCode"] = nil, -- Leave This Nil Unless ServerMode Is Private.
+    },
+    RifleConfig = {
+        ["AutoStats"] = false, -- Gun Mastery.
+        ["AutoQuest"] = true, -- Will auto grab Quest.
+    },
+    ServerCheck = {
+        ["BigServerCheck"] = true, -- Will Check If The Server Is To Big.
+        ["MaxPeople"] = 8, -- Only Works if BigServerCheck Is On.
+    },
+    TweenSpeeds = { -- Test Speeds if need
+        ["TweenUp"] = 125,
+        ["TweenChest"] = 40, 
+        ["TweenQuest"] = 50,
+        ["TweenMain"] = 45,
+    },
+    Misc = {
+        ["CapFps"] = true,
+        ["FpsCap"] = 30,
         ["MuteVolume"] = true,
     }
 }
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Stellsor/GyoPyoOyo/main/LvLo?token=GHSAT0AAAAAACENJW662OHW5D3GKQVYDEYGZE3M7EQ",true))()
+loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Stellsor/arc/main/Ra",true))()",true))()
