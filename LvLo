@@ -1,3 +1,4 @@
+
 --// -- // -- // -- // -- // -- // -- // -- // -- // -- // -- // -- // -- //
 --                                  Loading                               --
 --// -- // -- // -- // -- // -- // -- // -- // -- // -- // -- // -- // -- //
@@ -471,8 +472,9 @@ task.spawn(function()
             if Level >= 190 and CurrentQuest == "None" then
                 TPFarmPos = false
                 TweenTP(CFrame.new(7733.7294921875, -2175.83154296875, -17222.744140625), TweenQuestSpeed, 0) -- Tween To Get Quest.
-                game:GetService("ReplicatedStorage").Events.Quest:InvokeServer({"takequest", "Help becky"}) -- Grab Quest
-                TweenTP(CFrame.new(7835.03515625, -2151.33203125, -17139.115234375), TweenQuestSpeed, 20) -- Tween Back To Autofarm 1.
+                game:GetService("ReplicatedStorage").Events.Quest:InvokeServer({"takequest", "Help becky"})-- Grab Quest
+ 				wait(2)
+ 				TweenTP(CFrame.new(7835.03515625, -2151.33203125, -17139.115234375), TweenQuestSpeed, 20) -- Tween Back To Autofarm 1.
                 TweenTP(CFrame.new(7835.03515625, -2151.33203125, -17139.115234375), TweenQuestSpeed, 0) -- Tween Back To Autofarm 2.
                 TPFarmPos = true
             end

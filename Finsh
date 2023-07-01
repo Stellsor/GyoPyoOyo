@@ -12,10 +12,10 @@ getgenv().GPO = {
         ["MaxPeople"] = 8, -- Only Works if BigServerCheck Is On.
     },
     TweenSpeeds = { -- Test Speeds if need
-        ["TweenUp"] = 125,
-        ["TweenChest"] = 40, 
-        ["TweenQuest"] = 40,
-        ["TweenMain"] = 40,
+        ["TweenUp"] = 60,
+        ["TweenChest"] = 30, 
+        ["TweenQuest"] = 25,
+        ["TweenMain"] = 30,
     },
     Misc = {
         ["CapFps"] = true,
